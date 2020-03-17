@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  sql.data.server:
+    environment:
+      - SA_PASSWORD=orthos@pwd
+      - ACCEPT_EULA=Y
+    ports:
+      - "1401:1433"    # Important: In a production environment your should remove the external port
+
+
+
+  microcrud:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_HTTPS_PORT=44324
+    ports:
+      - "54743:80"
+      - "44324:443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
