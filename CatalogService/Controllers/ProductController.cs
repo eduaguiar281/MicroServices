@@ -3,57 +3,57 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Transactions;
-using MicroCrud.Models;
-using MicroCrud.Repository;
+using CatalogService.Models;
+using CatalogService.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MicroCrud.Controllers
+namespace CatalogService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoryController : ControllerBase
+    public class ProductController : ControllerBase
     {
-        private readonly ICategoryRepository _categoryRepository;
+        private readonly IProductRepository _productRepository;
 
-        public CategoryController(ICategoryRepository categoryRepository)
+        public ProductController(IProductRepository productRepository)
         {
-            _categoryRepository = categoryRepository;
+            _productRepository = productRepository;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            var products = _categoryRepository.GetCategories();
+            var products = _productRepository.GetProducts();
             return new OkObjectResult(products);
         }
 
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var product = _categoryRepository.GetCategoryByID(id);
+            var product = _productRepository.GetProductByID(id);
             return new OkObjectResult(product);
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Category category)
+        public IActionResult Post([FromBody] Product product)
         {
             using (var scope = new TransactionScope())
             {
-                _categoryRepository.InserCategory(category);
+                _productRepository.InsertProduct(product);
                 scope.Complete();
-                return CreatedAtAction(nameof(Get), new { id = category.Id }, category);
+                return CreatedAtAction(nameof(Get), new { id = product.Id }, product);
             }
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] Category category)
+        public IActionResult Put([FromBody] Product product)
         {
-            if (category != null)
+            if (product != null)
             {
                 using (var scope = new TransactionScope())
                 {
-                    _categoryRepository.UpdateCategory(category);
+                    _productRepository.UpdateProduct(product);
                     scope.Complete();
                     return new OkResult();
                 }
@@ -64,7 +64,7 @@ namespace MicroCrud.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _categoryRepository.DeleteCategory(id);
+            _productRepository.DeleteProduct(id);
             return new OkResult();
         }
     }

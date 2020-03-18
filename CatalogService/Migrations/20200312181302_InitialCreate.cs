@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MicroCrud.Migrations
+namespace CatalogService.Migrations
 {
     public partial class InitialCreate : Migration
     {

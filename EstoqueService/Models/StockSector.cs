@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EstoqueService.Models
+namespace WarehouseService.Models
 {
     public enum SectorType { PrivatePlace, ThirdPlace }
 
@@ -14,6 +14,11 @@ namespace EstoqueService.Models
         public bool Active { get; set; }
         public SectorType SectorType { get; set; }
         public virtual IEnumerable<StockPosition> StockPositions { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Id}- {Description}";
+        }
 
     }
 }

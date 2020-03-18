@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroCrud", "MicroCrud\MicroCrud.csproj", "{7143A287-2DA8-4869-B500-8FA5E32942B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatalogService", "CatalogService\CatalogService.csproj", "{7143A287-2DA8-4869-B500-8FA5E32942B1}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{71C0BDA8-5CB6-4646-93D8-64600BCFE85D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoqueService", "EstoqueService\EstoqueService.csproj", "{3E9672F3-2AE8-4940-B438-66E26213C6D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarehouseService", "EstoqueService\WarehouseService.csproj", "{3E9672F3-2AE8-4940-B438-66E26213C6D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

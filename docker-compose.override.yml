@@ -6,11 +6,11 @@ services:
       - SA_PASSWORD=orthos@pwd
       - ACCEPT_EULA=Y
     ports:
-      - "1401:1433"    # Important: In a production environment your should remove the external port
+      - "5401:1433"    # Important: In a production environment your should remove the external port
 
 
 
-  microcrud:
+  catalogservice:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80

@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MicroCrud.Data;
-using MicroCrud.Models;
+using CatalogService.Infrastructure.Data;
+using CatalogService.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace MicroCrud.Repository
+namespace CatalogService.Repository
 {
     public class ProductRepository : IProductRepository
     {
-        private readonly MicroCrudDataContext _dbContext;
+        private readonly CatalogDataContext _dbContext;
 
-        public ProductRepository(MicroCrudDataContext dbContext)
+        public ProductRepository(CatalogDataContext dbContext)
         {
             _dbContext = dbContext;
         }

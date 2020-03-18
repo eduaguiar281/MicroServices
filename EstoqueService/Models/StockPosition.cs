@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EstoqueService.Models
+namespace WarehouseService.Models
 {
 
     public enum Availability { Available, Unavailable }
@@ -44,6 +44,7 @@ namespace EstoqueService.Models
         public virtual StockSector StockSector { get; set; }
 
         public virtual IEnumerable<StockBalance> StockBalances { get; set; }
+        public virtual IEnumerable<InventoryMovement> InventoryMovements { get; set; }
 
         public override string ToString()
         {

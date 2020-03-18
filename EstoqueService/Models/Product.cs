@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EstoqueService.Models
+namespace WarehouseService.Models
 {
     public class Product
     {
@@ -13,6 +13,12 @@ namespace EstoqueService.Models
         public int UnavalibleQuantity { get; set; }
 
         public virtual IEnumerable<StockBalance> StockBalances { get; set; }
+        public virtual IEnumerable<InventoryMovement> InventoryMovements { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Id}- {Description}";
+        }
 
     }
 }

@@ -1,15 +1,15 @@
-﻿using MicroCrud.Models;
+﻿using CatalogService.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MicroCrud.Data
+namespace CatalogService.Infrastructure.Data
 {
-    public class MicroCrudDataContext: DbContext
+    public class CatalogDataContext: DbContext
     {
-        public MicroCrudDataContext(DbContextOptions<MicroCrudDataContext> options)
+        public CatalogDataContext(DbContextOptions<CatalogDataContext> options)
             :base(options)
         {
 

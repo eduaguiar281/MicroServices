@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MicroCrud.Models
+namespace CatalogService.Models
 {
-    public class Product
+    public class Category
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
-        public decimal Price { get; set; }
-        public int CategoryId { get; set; }
 
+        public string Description { get; set; }
     }
 }

@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "MicroCrud": {
+    "CatalogService": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/category",

@@ -3,12 +3,14 @@ version: '3.4'
 services:
 
   sql.data.server:
-    image: mcr.microsoft.com/mssql/server:2019-GA-ubuntu-16.04
+    container_name: sql-server-2017-databases
+    image: mcr.microsoft.com/mssql/server:2017-latest
 
-  microcrud:
-    image: ${DOCKER_REGISTRY-}microcrud
+  catalogservice:
+    image: ${DOCKER_REGISTRY-}catalogservice
+    container_name: catalogservice-container
     build:
       context: .
-      dockerfile: MicroCrud/Dockerfile
+      dockerfile: CatalogService/Dockerfile
     depends_on:
       - sql.data.server

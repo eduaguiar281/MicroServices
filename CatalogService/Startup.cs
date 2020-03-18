@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MicroCrud.Data;
-using MicroCrud.Repository;
+using CatalogService.Infrastructure.Data;
+using CatalogService.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -14,7 +14,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 
-namespace MicroCrud
+namespace CatalogService
 {
     public class Startup
     {
@@ -29,7 +29,7 @@ namespace MicroCrud
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<MicroCrudDataContext>(o=> o.UseSqlServer(Configuration.GetConnectionString("MicroCrudDB")));
+            services.AddDbContext<CatalogDataContext>(o=> o.UseSqlServer(Configuration.GetConnectionString("CatalogDB")));
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
         }

@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MicroCrud.Data;
-using MicroCrud.Models;
+using CatalogService.Infrastructure.Data;
+using CatalogService.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace MicroCrud.Repository
+namespace CatalogService.Repository
 {
     public class CategoryRepository : ICategoryRepository
     {
-        private readonly MicroCrudDataContext _dbContext;
+        private readonly CatalogDataContext _dbContext;
 
-        public CategoryRepository(MicroCrudDataContext dbContext)
+        public CategoryRepository(CatalogDataContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -30,6 +30,7 @@ namespace MicroCrud.Repository
 
         public IEnumerable<Category> GetCategories()
         {
+            
             return _dbContext.Categories.ToList();
         }
 
