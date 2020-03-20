@@ -13,5 +13,11 @@ namespace CatalogService.Models
         public decimal Price { get; set; }
         public int CategoryId { get; set; }
 
+        public virtual Category Category { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Id}- {Name}";
+        }
     }
 }

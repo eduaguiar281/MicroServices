@@ -6,10 +6,15 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Warehouse.Core.Data;
+using WarehouseService.Infrastructure.Data;
+using WarehouseService.Models;
+using WarehouseService.Services;
 
 namespace WarehouseService
 {
@@ -26,6 +31,9 @@ namespace WarehouseService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddDbContext<IDbContext, WarehouseDataContext>(o => o.UseSqlServer(Configuration.GetConnectionString("WarehouseDB")));
+            services.AddTransient<IRepository<Product>, EfRepository<Product>>();
+            services.AddTransient<IProductService, ProductService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Warehouse.Core.Models;
 
 namespace WarehouseService.Models
 {
-    public class Product
+    public class Product : BaseEntity
     {
-        public int Id { get; set; }
+        public string Name { get; set; }
         public string Description { get; set; }
         public int AvalibleQuantity { get; set; }
         public int UnavalibleQuantity { get; set; }
@@ -17,7 +18,7 @@ namespace WarehouseService.Models
 
         public override string ToString()
         {
-            return $"{Id}- {Description}";
+            return $"{Id}- {Name}";
         }
 
     }

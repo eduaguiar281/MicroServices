@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Warehouse.Core.Models;
 
 namespace WarehouseService.Models
 {
 
     public enum Availability { Available, Unavailable }
 
-    public class StockPosition
+    public class StockPosition : BaseEntity
     {
-        public int Id { get; set; }
-
         private string _description = string.Empty;
         public string Description
         {
@@ -39,7 +38,7 @@ namespace WarehouseService.Models
             set { _level = value; ToString(); } 
         }
         public bool Active { get; set; }
-        public SectorType SectorType { get; set; }
+        public Availability Availability { get; set; }
         public int StockSectorId { get; set; }
         public virtual StockSector StockSector { get; set; }
 

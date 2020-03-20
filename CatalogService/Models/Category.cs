@@ -11,5 +11,12 @@ namespace CatalogService.Models
         public string Name { get; set; }
 
         public string Description { get; set; }
+
+        public virtual IEnumerable<Product> Products { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Id}- {Name}";
+        }
     }
 }

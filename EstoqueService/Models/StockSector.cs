@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Warehouse.Core.Models;
 
 namespace WarehouseService.Models
 {
     public enum SectorType { PrivatePlace, ThirdPlace }
 
-    public class StockSector
+    public class StockSector : BaseEntity
     {
-        public int Id { get; set;  }
         public string Description { get; set; }
         public bool Active { get; set; }
         public SectorType SectorType { get; set; }
